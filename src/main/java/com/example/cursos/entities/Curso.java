@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,13 +15,14 @@ import java.util.Objects;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 @Entity
 @Table(name = "cursos")
+@EntityListeners(AuditingEntityListener.class)
 public class Curso implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "nome", nullable = false, length = 100)
+    @Column(name = "nome", nullable = false, unique = true, length = 100)
     private String nome;
     @Column(name = "horas", nullable = false, length = 100)
     private int horas;
@@ -32,6 +34,9 @@ public class Curso implements Serializable {
     @Column(name = "ativo", nullable = false, length = 100)
     private Boolean ativo = true;
 
+    public String getUsername() {
+        return this.nome;
+    }
 
 
     @Override

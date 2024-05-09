@@ -3,7 +3,7 @@ package com.example.cursos.web.exception;
 import com.example.cursos.exception.CursoUniqueViolationException;
 import com.example.cursos.exception.CustomException;
 import com.example.cursos.exception.InvalidFieldsException;
-import com.example.cursos.exception.NotFoundException;
+import com.example.cursos.exception.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -44,9 +44,8 @@ public class ApiExceptionHandler {
                 .body(new ErrorMessage(request, HttpStatus.BAD_REQUEST, ex.getMessage(), ex.getBindingResult()));
     }
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorMessage> notFoundException(NotFoundException ex,
-                                                          HttpServletRequest request) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<ErrorMessage> entityNotFoundException(RuntimeException ex, HttpServletRequest request) {
         log.error("Api Error -", ex);
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
