@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum DisAreaConhecimento {
+public enum AreaConhecimento {
     TI,
     MARKETING,
     FINANCAS,
