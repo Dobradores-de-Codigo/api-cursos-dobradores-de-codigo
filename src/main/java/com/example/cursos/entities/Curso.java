@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
@@ -21,17 +20,19 @@ public class Curso implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
     @Column(name = "horas", nullable = false, length = 100)
-    private Date horas;
+    private int horas;
     @Column(name = "professor", nullable = false, length = 100)
     private String professor;
+    @Enumerated(EnumType.STRING)
     @Column(name = "areaConhecimento", nullable = false, length = 100)
     private AreaConhecimento areaConhecimento;
     @Column(name = "ativo", nullable = false, length = 100)
-    private Boolean ativo;
+    private Boolean ativo = true;
+
+
 
     @Override
     public boolean equals(Object o) {
