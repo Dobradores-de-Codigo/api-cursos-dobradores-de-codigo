@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.cursos.entities.Curso;
 
-@Repository
+
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
-    boolean existsByNome(String nome);
 }

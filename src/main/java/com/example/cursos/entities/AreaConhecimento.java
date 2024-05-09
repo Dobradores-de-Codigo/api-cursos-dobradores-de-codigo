@@ -1,13 +1,15 @@
 package com.example.cursos.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+
+@Getter
 @AllArgsConstructor
-public enum AreaConhecimento {
-
+public enum DisAreaConhecimento {
     TI,
     MARKETING,
-    FINANÇAS,
+    FINANCAS,
     RH,
     OUTROS
 
