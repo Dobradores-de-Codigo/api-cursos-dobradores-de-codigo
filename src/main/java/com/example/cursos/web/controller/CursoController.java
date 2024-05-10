@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/cursos")
@@ -28,6 +30,11 @@ public class CursoController {
     public ResponseEntity<CursoResponseDto> updateProfessor(@PathVariable Long id, @RequestBody CursoProfessorDto dto) {
         Curso curso = cursoService.editarProfessor(id, dto.getNovoProfessor());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
+    }
+    @GetMapping
+    public ResponseEntity<List<CursoResponseDto>> getAll() {
+        List<Curso> cursos = cursoService.buscarTodos();
+        return ResponseEntity.ok(CursoMapper.toListDto(cursos));
     }
 
     /*@Operation(summary = "Recuperar um curso pelo id", description = "Recuperar um curso pelo id",

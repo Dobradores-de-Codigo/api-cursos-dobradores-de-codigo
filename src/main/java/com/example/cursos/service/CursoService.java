@@ -39,6 +39,10 @@ public class CursoService {
         curso.setProfessor(novoProfessor);
         return curso;
     }
+    @Transactional(readOnly = true)
+    public List<Curso> buscarTodos() {
+        return cursoRepository.findAll();
+    }
 
 }
 
