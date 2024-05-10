@@ -1,7 +1,6 @@
 package com.example.cursos.web.exception;
 
 import com.example.cursos.exception.CursoUniqueViolationException;
-import com.example.cursos.exception.CustomException;
 import com.example.cursos.exception.InvalidFieldsException;
 import com.example.cursos.exception.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,16 +23,6 @@ public class ApiExceptionHandler {
                 .body(new ErrorMessage(request, HttpStatus.CONFLICT, ex.getMessage()));
 
     }
-    @ExceptionHandler(CustomException.class)
-    public ResponseEntity<ErrorMessage> customException(CustomException ex,
-                                                        HttpServletRequest request) {
-        log.error("Api Error -", ex);
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(new ErrorMessage(request, HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage()));
-    }
-
     @ExceptionHandler(InvalidFieldsException.class)
     public ResponseEntity<ErrorMessage> invalidFieldsException(InvalidFieldsException ex,
                                                                HttpServletRequest request) {

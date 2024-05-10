@@ -5,7 +5,6 @@ import com.example.cursos.exception.CursoUniqueViolationException;
 import com.example.cursos.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import com.example.cursos.entities.Curso;
 import com.example.cursos.repository.CursoRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,5 +52,4 @@ public class CursoService {
         curso.setAtivo(false);
         return curso;
     }
-
 }
