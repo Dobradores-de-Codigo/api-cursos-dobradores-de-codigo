@@ -26,7 +26,7 @@ public class CursoController {
         Curso curso = cursoService.salvar(CursoMapper.toCurso(createDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(CursoMapper.toDto(curso));
     }
-    @PatchMapping("/{id}")
+    @PatchMapping("/professor/{id}")
     public ResponseEntity<CursoResponseDto> updateProfessor(@PathVariable Long id, @RequestBody CursoProfessorDto dto) {
         Curso curso = cursoService.editarProfessor(id, dto.getNovoProfessor());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
@@ -35,6 +35,12 @@ public class CursoController {
     public ResponseEntity<List<CursoResponseDto>> getAll() {
         List<Curso> cursos = cursoService.buscarTodos();
         return ResponseEntity.ok(CursoMapper.toListDto(cursos));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<CursoResponseDto> inabilitarCurso(@PathVariable Long id) {
+        Curso curso = cursoService.inabilitarCurso(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
 
     /*@Operation(summary = "Recuperar um curso pelo id", description = "Recuperar um curso pelo id",
