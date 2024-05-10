@@ -40,8 +40,15 @@ public class CursoController {
         Curso curso = cursoService.salvar(CursoMapper.toCurso(createDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(CursoMapper.toDto(curso));
     }
+    @Operation(summary = "Atualizar o professor de um curso existente", description = "Recurso para atualizar o professor de um curso existente",
+            responses = {
+                    @ApiResponse(responseCode = "202", description = "Professor atualizado com sucesso",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CursoResponseDto.class))),
+                    @ApiResponse(responseCode = "404", description = "Curso não encontrado",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+            })
     @PatchMapping("/professor/{id}")
-    public ResponseEntity<CursoResponseDto> updateProfessor(@PathVariable Long id, @RequestBody CursoProfessorDto dto) {
+    public ResponseEntity<CursoResponseDto> atualizarProfessor(@PathVariable Long id, @RequestBody CursoProfessorDto dto) {
         Curso curso = cursoService.editarProfessor(id, dto.getNovoProfessor());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
