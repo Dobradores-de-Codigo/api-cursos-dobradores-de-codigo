@@ -62,7 +62,12 @@ public class CursoController {
         List<Curso> cursos = cursoService.buscarTodos();
         return ResponseEntity.ok(CursoMapper.toListDto(cursos));
     }
-
+    @Operation(summary = "Inativar um curso", description = "Endpoint para inativar um curso existente",
+            responses = {
+                    @ApiResponse(responseCode = "202", description = "Curso inativado com sucesso",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CursoResponseDto.class))),
+                    @ApiResponse(responseCode = "404", description = "Curso não encontrado")
+            })
     @PatchMapping("/{id}")
     public ResponseEntity<CursoResponseDto> inabilitarCurso(@PathVariable Long id) {
         Curso curso = cursoService.inabilitarCurso(id);
