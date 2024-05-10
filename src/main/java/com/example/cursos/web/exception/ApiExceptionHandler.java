@@ -1,7 +1,6 @@
 package com.example.cursos.web.exception;
 
 import com.example.cursos.exception.CursoUniqueViolationException;
-import com.example.cursos.exception.CustomException;
 import com.example.cursos.exception.InvalidFieldsException;
 import com.example.cursos.exception.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
