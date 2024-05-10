@@ -52,6 +52,11 @@ public class CursoController {
         Curso curso = cursoService.editarProfessor(id, dto.getNovoProfessor());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
+    @Operation(summary = "Obter todos os cursos cadastrados", description = "Recurso para obter todos os cursos cadastrados",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Lista de cursos obtida com sucesso",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = CursoResponseDto.class)))
+            })
     @GetMapping
     public ResponseEntity<List<CursoResponseDto>> getAll() {
         List<Curso> cursos = cursoService.buscarTodos();
