@@ -7,6 +7,9 @@ import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class SpringDocOpenApiConfig {
 
@@ -16,12 +19,9 @@ public class SpringDocOpenApiConfig {
                 .info(
                         new Info()
                                 .title("Rest API - Spring Curso")
-                                .description("API para cadastrar cursos")
+                                .description("API para cadastrar cursos.\n Contatos: \n Vagner Ferreira - vagner.lima.pb@compasso.com.br, \n Juliana Ransani - juliana.ransani.pb@compasso.com.br, \n Jeferson Gomes - jeferson.gomes.pb@compasso.com.br")
                                 .version("v1")
                                 .license(new License().name("Apache2.0").url("https://www.apache.org/licenses/LICENSE-2.0"))
-                                .contact(new Contact().name("Vagner Ferreira").email("vagner.lima.pb@compasso.com.br"))
-                                .contact(new Contact().name("Juliana Ransani").email("juliana.ransani.pb@compasso.com.br"))
-                                .contact(new Contact().name("Jeferson Gomes").email("jeferson.gomes.pb@compasso.com.br"))
                 );
     }
 }
