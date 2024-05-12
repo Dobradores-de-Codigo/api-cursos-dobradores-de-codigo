@@ -99,4 +99,5 @@ public class CursoTest {
         Assertions.assertEquals(AreaConhecimento.FINANCAS, curso.getAreaConhecimento());
         Assertions.assertEquals(true, curso.getAtivo());
     }
+    // asdf
 }

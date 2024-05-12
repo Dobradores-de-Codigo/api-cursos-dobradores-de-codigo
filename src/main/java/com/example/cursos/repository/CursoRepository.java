@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {
     List<Curso> findAll();
+    // asdf
 }

@@ -63,4 +63,5 @@ public class CursoService {
                 .orElseThrow(() -> new EntityNotFoundException(String.format("Curso id=%s não encontrado.", id), HttpStatus.NOT_FOUND));
         cursoRepository.delete(curso);
     }
+    // asdf
 }

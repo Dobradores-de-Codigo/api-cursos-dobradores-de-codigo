@@ -44,4 +44,5 @@ public class AreaConhecimentoTest {
             AreaConhecimento invalido = AreaConhecimento.valueOf("INVALIDO");
         });
     }
+    // asdf
 }

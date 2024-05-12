@@ -64,4 +64,5 @@ public class CursoControllerTest {
                 .andExpect(jsonPath("$[0].id").value(1L))
                 .andExpect(jsonPath("$[0].nome").value("Curso de Teste"));
     }
+    // asdf
 }

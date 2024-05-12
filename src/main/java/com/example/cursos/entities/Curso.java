@@ -64,4 +64,5 @@ public class Curso implements Serializable {
                 ", ativo=" + ativo +
                 ')';
     }
+    // asdf
 }

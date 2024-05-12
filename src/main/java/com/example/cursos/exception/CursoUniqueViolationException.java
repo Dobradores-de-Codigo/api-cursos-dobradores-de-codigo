@@ -13,4 +13,5 @@ public class CursoUniqueViolationException extends RuntimeException {
     public CursoUniqueViolationException(String message) {
         super(message);
     }
+    // asdf
 }

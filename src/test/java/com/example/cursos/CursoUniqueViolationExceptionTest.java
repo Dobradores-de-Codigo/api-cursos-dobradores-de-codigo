@@ -22,4 +22,5 @@ public class CursoUniqueViolationExceptionTest {
 
         assertEquals(HttpStatus.CONFLICT, exception.getStatus());
     }
+    // asdf
 }

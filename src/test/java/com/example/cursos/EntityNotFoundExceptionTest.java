@@ -22,4 +22,5 @@ public class EntityNotFoundExceptionTest {
 
         assertEquals(HttpStatus.NOT_FOUND, exception.getStatus());
     }
+    // asdf
 }
