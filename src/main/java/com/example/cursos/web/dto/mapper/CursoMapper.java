@@ -22,4 +22,5 @@ public class CursoMapper {
     public static List<CursoResponseDto> toListDto(List<Curso> cursos){
         return cursos.stream().map(curso -> toDto(curso)).collect(Collectors.toList());
     }
+    // asdf
 }

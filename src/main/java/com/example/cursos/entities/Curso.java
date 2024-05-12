@@ -3,20 +3,19 @@ package com.example.cursos.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@AllArgsConstructor
+@Getter @Setter @RequiredArgsConstructor @Data
 @Entity
 @Table(name = "cursos")
 @EntityListeners(AuditingEntityListener.class)
 public class Curso implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +33,13 @@ public class Curso implements Serializable {
     @Column(name = "ativo", nullable = false, length = 100)
     private Boolean ativo = true;
 
+    public boolean isAtivo() {
+        return this.ativo;
+    }
+
     public String getUsername() {
         return this.nome;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -51,4 +53,16 @@ public class Curso implements Serializable {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    @Override
+    public String toString() {
+        return "Curso(" + "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", horas=" + horas +
+                ", professor='" + professor + '\'' +
+                ", areaConhecimento=" + areaConhecimento +
+                ", ativo=" + ativo +
+                ')';
+    }
+    // asdf
 }

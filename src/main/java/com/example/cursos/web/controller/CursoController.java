@@ -41,6 +41,7 @@ public class CursoController {
         Curso curso = cursoService.salvar(CursoMapper.toCurso(createDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(CursoMapper.toDto(curso));
     }
+
     @Operation(summary = "Atualizar o professor de um curso existente", description = "Recurso para atualizar o professor de um curso existente",
             responses = {
                     @ApiResponse(responseCode = "202", description = "Professor atualizado com sucesso",
@@ -53,6 +54,7 @@ public class CursoController {
         Curso curso = cursoService.editarProfessor(id, dto.getNovoProfessor());
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
+
     @Operation(summary = "Obter todos os cursos cadastrados", description = "Recurso para obter todos os cursos cadastrados",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Lista de cursos obtida com sucesso",
@@ -60,9 +62,10 @@ public class CursoController {
             })
     @GetMapping
     public ResponseEntity<List<CursoResponseDto>> getAll() {
-        List<Curso> cursos = cursoService.buscarTodos();
+        List<Curso> cursos = cursoService.findAll();
         return ResponseEntity.ok(CursoMapper.toListDto(cursos));
     }
+
     @Operation(summary = "Inativar um curso", description = "Endpoint para inativar um curso existente",
             responses = {
                     @ApiResponse(responseCode = "202", description = "Curso inativado com sucesso",
@@ -75,4 +78,10 @@ public class CursoController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CursoResponseDto> buscarCurso(@PathVariable Long id) {
+        Curso curso = cursoService.findById(id);
+        return ResponseEntity.ok(CursoMapper.toDto(curso));
+    }
+    // asdf
 }
