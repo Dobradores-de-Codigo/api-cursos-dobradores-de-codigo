@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "30241151-cc3c-4f7a-ae71-7257a2c3ada7",
+		"name": "Api-Cursos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34287600"
+	},
+	"item": [
+		{
+			"name": "Cadastrar-Curso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" :\"Contabilidade\",\r\n    \"horas\" :20,\r\n    \"professor\":\"Elias Mathias\",\r\n    \"areaConhecimento\": \"FINANCAS\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar-Professor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"novoProfessor\": \"Alice Vieira\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cursos/professor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cursos",
+						"professor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inabilitar-Curso",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cursos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cursos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar-Curso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cursos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cursos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar-Todos-Os-Cursos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
