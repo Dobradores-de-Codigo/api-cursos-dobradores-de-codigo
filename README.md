@@ -59,3 +59,4 @@ O link do repositório deve ser enviado por e-mail até às 12hrs do dia 13/05/2
 + Alterar Professor de um curso já cadastrado.
 + Inabilitar curso.
 + Buscar todos os cursos cadastrados.
++ Buscar curso por id.

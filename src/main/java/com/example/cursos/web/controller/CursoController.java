@@ -77,7 +77,12 @@ public class CursoController {
         Curso curso = cursoService.inabilitarCurso(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(CursoMapper.toDto(curso));
     }
-
+    @Operation(summary = "Buscar curso por id", description = "Buscar curso por id",
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Busca feita com sucesso",
+                content = @Content(mediaType = "application/json", schema = @Schema(implementation = CursoResponseDto.class) ))
+        }
+    )
     @GetMapping("/{id}")
     public ResponseEntity<CursoResponseDto> buscarCurso(@PathVariable Long id) {
         Curso curso = cursoService.findById(id);
